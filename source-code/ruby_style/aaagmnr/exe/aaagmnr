@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative "../lib/aaagmnr"
+
+runner = Aaagmnr::Runner.new(ARGV)
+runner.run

@@ -1,0 +1,25 @@
+module Aaagmnr
+  class Finder
+    @signatures: Hash[String, Array[String]]
+    def self.from_file: (String file_name) -> Finder
+    def initialize: (Array[String] dictionary_words) -> void
+    def lookup: (String word) -> Array[String]
+    def signature_of: (String word) -> String
+  end
+
+  class Options
+    attr_reader dictionary: Array[String]
+    attr_reader words_to_find: Array[String]
+
+    def initialize: (Array[String] argv) -> void
+    private def parse: (Array[String] argv) -> void
+  end
+
+  class Runner
+    @options: Array[String]
+    def initialize: (Array[String] argv) -> void
+    def run: () -> void
+  end
+
+  VERSION: String
+end

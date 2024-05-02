@@ -1,0 +1,15 @@
+def delete(dir, pattern)
+  files = Dir["#{dir}/#{pattern}"]
+  rm(files, verbose: true) unless files.empty?
+end
+
+desc "Remove files whose names end with a tilde"
+task :delete_unix_backups do
+  dir = "."
+  parser = OptionParser.new
+  parser.on("-d DIR") { |opt| dir = opt }
+  args = parser.order!(ARGV) {}
+  parser.parse!(args)
+  puts dir
+  delete(dir, "*~")
+end

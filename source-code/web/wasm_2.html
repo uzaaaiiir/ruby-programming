@@ -1,0 +1,38 @@
+<!--
+ ! Excerpted from "Programming Ruby 3.2",
+ ! published by The Pragmatic Bookshelf.
+ ! Copyrights apply to this code. It may not be used to create training material,
+ ! courses, books, articles, and the like. Contact us if you are in doubt.
+ ! We make no guarantees that this code is fit for any purpose.
+ ! Visit https://pragprog.com/titles/ruby5 for more book information.
+-->
+<html>
+<head>
+  <script
+    src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@0.5.0/dist/browser.script.iife.js"
+  ></script>
+  <script type="text/ruby">
+    require "js"
+    document = JS.global[:document]
+    button = document.getElementById("button")
+    response = document.getElementById("response")
+    guess = document.getElementById("guess")
+    button.addEventListener("click") do |e|
+      real_number = (1..10).to_a.sample
+      result_text = "The number was #{real_number}. "
+      if guess[:value].to_i == real_number
+        result_text << "You were right!!"
+      else
+        result_text << "You were incorrect"
+      end
+      response[:innerText] = result_text
+    end
+  </script>
+</head>
+<body>
+  <p>Pick a number 1 through 10</p>
+  <input id="guess" />
+  <button id="button">Am I right?</button>
+  <div id="response"></div>
+</body>
+</html>
